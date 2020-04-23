@@ -1,10 +1,10 @@
 package NrTelefoniczny;
 import java.util.Scanner;
 public class Osoba extends Wpis {
-    String imie;
-    String nazwisko;
-    Adres adres;
-    public NrTelefoniczny nrTel;
+    private String imie;
+    private String nazwisko;
+    private Adres adres;
+    private  NrTelefoniczny nrTel;
     public Osoba(){
         imie=null;
         nazwisko=null;
@@ -22,6 +22,9 @@ public class Osoba extends Wpis {
     }
     public String toString(){
         return opis();
+    }
+    public NrTelefoniczny getNrTel(){
+        return nrTel;
     }
     public void enter(){
         System.out.print("Enter name and surname: ");

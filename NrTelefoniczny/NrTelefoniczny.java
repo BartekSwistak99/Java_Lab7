@@ -1,14 +1,14 @@
 package NrTelefoniczny;
-
-public class NrTelefoniczny extends Wpis implements Comparable<NrTelefoniczny> {
-    int nrKierunkowy;
-    int nrTelefonu;
+import java.util.Scanner;
+public class NrTelefoniczny implements Comparable<NrTelefoniczny> {
+    private int nrKierunkowy;
+    private int nrTelefonu;
 
     public NrTelefoniczny(int nrKier, int nrTel) {
         if (nrKier < 0 || nrTel < 0)
-            throw new IllegalArgumentException("Incorrect number!");
+            throw new IllegalArgumentException("Incorrect phone number!");
         if (nrKier > 99 || nrTel < 100000000 || nrTel > 999999999)
-            throw new IllegalArgumentException("Incorrect number!");
+            throw new IllegalArgumentException("Incorrect phone number!");
 
         nrKierunkowy = nrKier;
         nrTelefonu = nrTel;
@@ -48,6 +48,7 @@ public class NrTelefoniczny extends Wpis implements Comparable<NrTelefoniczny> {
     }
 
     public void enter() {
+     Scanner scanner= new Scanner(System.in);
         System.out.print("Enter dialing code (or press enter): ");
         try {
             String entry = scanner.nextLine();

@@ -1,9 +1,9 @@
 package NrTelefoniczny;
 
 public class Firma extends Wpis {
-    String nazwa;
-    Adres adres;
-    public NrTelefoniczny nrTel;
+    private String nazwa;
+    private Adres adres;
+    private NrTelefoniczny nrTel;
     public Firma(){
         nazwa=null;
         adres=null;
@@ -17,6 +17,9 @@ public class Firma extends Wpis {
 
     public String opis() {
         return nazwa+"\n\t"+ adres.getUlica()+"\n\t"+adres.getMiasto()+"\n\t" + nrTel;
+    }
+    public NrTelefoniczny getNrTel(){
+        return nrTel;
     }
 
     @Override

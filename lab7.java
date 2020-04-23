@@ -10,7 +10,7 @@ import java.util.Set;
 public class lab7 {
     public static void main(String[] args) {
         TreeMap<NrTelefoniczny,Wpis> map = new TreeMap<NrTelefoniczny,Wpis> ();
-
+        try{
         NrTelefoniczny tel1 = new NrTelefoniczny(48, 226952900);
         Adres adres1 = new Adres("wiejska", 10, "Warszawa", "00-902");
         Osoba andrzej = new Osoba("Andrzej", "Duda", adres1, tel1);
@@ -27,19 +27,21 @@ public class lab7 {
         Adres adres4 = new Adres("Wólczańska", 215, "Łódź", "90-924");
         Firma firma2 = new Firma("Ftims", adres4, tel4);
         // map.put(firma1.nrTel,firma1);
-        map.put(antek.nrTel, antek);
-        map.put(andrzej.nrTel, andrzej);
-        map.put(firma1.nrTel, firma1);
-        map.put(firma2.nrTel, firma2);
-        
+        map.put(antek.getNrTel(), antek);
+        map.put(andrzej.getNrTel(), andrzej);
+        map.put(firma1.getNrTel(), firma1);
+        map.put(firma2.getNrTel(), firma2);
+        }catch(IllegalArgumentException e){
+           System.out.println(e.getMessage());
+        }
         
         Set <Entry<NrTelefoniczny,Wpis>> entrySet = map.entrySet();
         Iterator it = entrySet.iterator();
         while (it.hasNext()) {
             Map.Entry me = (Map.Entry) it.next();
-            System.out.println("Klucz:   " + me.getKey());
-            System.out.println("Wartosc: " + me.getValue());
-            System.out.println("\n");
+            //System.out.println("Klucz:   " + me.getKey());
+           // System.out.println("Wartosc: ");
+            System.out.println(me.getValue()+"\n");
         }
     }
     
